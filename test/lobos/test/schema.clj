@@ -218,7 +218,20 @@
       "Table with column")
   (is (= (table :foo (unique :bar [:a]))
          (Table. :foo {} {:bar (UniqueConstraint. :bar :unique [:a])} {}))
-      "Table with constraint"))
+      "Table with constraint")
+  (is (= (list :col1 :col2 :col3 :col4 :col5 :col6 :col7 :col8 :col9 :col10)
+         (keys (:columns (table :foo
+                                (column :col1 nil nil)
+                                (column :col2 nil nil)
+                                (column :col3 nil nil)
+                                (column :col4 nil nil)
+                                (column :col5 nil nil)
+                                (column :col6 nil nil)
+                                (column :col7 nil nil)
+                                (column :col8 nil nil)
+                                (column :col9 nil nil)
+                                (column :col10 nil nil)))))
+      "Table with many ordered columns"))
 
 ;;;; Schema definition tests
 
