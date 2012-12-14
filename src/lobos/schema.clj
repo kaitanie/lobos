@@ -29,7 +29,8 @@
   (:use (clojure [walk   :only [postwalk]]
                  [set    :only [union]]
                  [string :only [replace]])
-        lobos.utils))
+        lobos.utils
+        flatland.ordered.map))
 
 (ast/import-all)
 
@@ -689,7 +690,7 @@
   [name & [columns constraints indexes]]
   (name-required name "table")
   (Table. name
-          (or columns {})
+          (or columns (ordered-map))
           (or constraints {})
           (or indexes {})))
 
@@ -697,7 +698,7 @@
   "Constructs an abstract table definition containing the given
   elements."
   [name & elements]
-  `(-> (table* ~name) ~@(reverse elements)))
+  `(-> (table* ~name) ~@elements))
 
 ;; -----------------------------------------------------------------------------
 
