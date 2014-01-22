@@ -6,6 +6,8 @@
   :dependencies [[org.clojure/clojure "1.4.0"]
                  [org.clojure/java.jdbc "0.3.0-beta1"]
                  [org.clojure/tools.macro "0.1.2"]
+                 [org.clojure/java.jdbc "0.1.1"]
+                 [org.clojure/tools.macro "0.1.1"]
                  [org.flatland/ordered "1.4.0"]]
   :profiles {:1.3 {:dependencies [[org.clojure/clojure "1.3.0"]]}
              :1.5 {:dependencies [[org.clojure/clojure "1.5.1"]]}
